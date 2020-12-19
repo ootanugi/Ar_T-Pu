@@ -25,12 +25,15 @@ public class OBJ_Button : MonoBehaviour
             {
                 case "Test1":
                     Debug.LogError("Click1");
+                    hit.transform.gameObject.SetActive(false);
                     break;
                 case "Test2":
                     Debug.LogError("Click2");
+                    hit.transform.gameObject.SetActive(false);
                     break;
                 case "Test3":
                     Debug.LogError("Click3");
+                    hit.transform.gameObject.SetActive(false);
                     break;
 
             }
