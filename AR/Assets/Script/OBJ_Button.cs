@@ -5,6 +5,7 @@ using UnityEngine;
 public class OBJ_Button : MonoBehaviour
 {
   public LayerMask layerMask;
+    string OBJ_Name;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,21 +19,23 @@ public class OBJ_Button : MonoBehaviour
         RaycastHit hit;
 
 
-        if(Physics.Raycast(ray,out hit,layerMask))
+        if(Physics.Raycast(ray,out hit))
         {
-            if(layerMask == 8)
+            OBJ_Name = hit.transform.name;
+            switch (OBJ_Name)
             {
-                Debug.LogError("8");
+                case "Test1":
+                    Debug.LogError("Click1");
+                    break;
+                case "Test2":
+                    Debug.LogError("Click2");
+                    break;
+                case "Test3":
+                    Debug.LogError("Click3");
+                    break;
+
             }
-            if (layerMask == 9)
-            {
-                Debug.LogError("9");
-            }
-            if (layerMask == 10)
-            {
-                Debug.LogError("10");
-            }
-                Debug.LogError(hit.transform.name);
+            Debug.LogError(hit.transform.name);
         }
         
     }
