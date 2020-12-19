@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class OBJ_Button : MonoBehaviour
 {
-  public LayerMask layerMask;
     string OBJ_Name;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class OBJ_Button : MonoBehaviour
         RaycastHit hit;
 
 
-        if(Physics.Raycast(ray,out hit))
+        if(Physics.Raycast(ray,out hit)&&Input.touches[0].phase == TouchPhase.Began)
         {
             OBJ_Name = hit.transform.name;
             switch (OBJ_Name)
