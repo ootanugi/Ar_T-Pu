@@ -36,11 +36,11 @@ public class OBJ_Button : MonoBehaviour
                     break;
                 case "Test3":
                     Debug.LogError("Click3");
-                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(() => GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[2]);
+                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(() => GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[2 ]);
                     break;
 
             }
-                   DOVirtual.DelayedCall(1.5f,()=> GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack));
+                   DOVirtual.DelayedCall(1,()=> GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack));
 
         }
         
