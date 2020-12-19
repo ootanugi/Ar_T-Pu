@@ -26,21 +26,21 @@ public class OBJ_Button : MonoBehaviour
             {
                 case "Test1":
                     Debug.LogError("Click1");
-                    GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[0];
+                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(()=> GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[0]);
+                    
                  
                     break;
                 case "Test2":
                     Debug.LogError("Click2");
-
-                    GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[1];
+                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(() => GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[1]);
                     break;
                 case "Test3":
                     Debug.LogError("Click3");
-                    GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[2];
+                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(() => GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[2]);
                     break;
 
             }
-                    GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack);
+                   DOVirtual.DelayedCall(1.5f,()=> GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack));
 
         }
         
