@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class OBJ_Button : MonoBehaviour
 {
@@ -25,20 +26,25 @@ public class OBJ_Button : MonoBehaviour
             {
                 case "Test1":
                     Debug.LogError("Click1");
-                    hit.transform.gameObject.SetActive(false);
+                    GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[0];
+                 
                     break;
                 case "Test2":
                     Debug.LogError("Click2");
-                    hit.transform.gameObject.SetActive(false);
+
+                    GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[1];
                     break;
                 case "Test3":
                     Debug.LogError("Click3");
-                    hit.transform.gameObject.SetActive(false);
+                    GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[2];
                     break;
 
             }
-            Debug.LogError(hit.transform.name);
+                    GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack);
+
         }
         
     }
+
+    
 }
