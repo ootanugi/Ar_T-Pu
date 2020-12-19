@@ -15,7 +15,7 @@ public class Anim : MonoBehaviour
     void Start()
     {
 
-        transform.DOScale(1,Random.Range(0.3f,0.5f)).SetEase(Ease.OutBack);
+        transform.DOScale(1,Random.Range(1,1.5f)).SetEase(Ease.OutBack);
     }
 
     // Update is called once per frame
