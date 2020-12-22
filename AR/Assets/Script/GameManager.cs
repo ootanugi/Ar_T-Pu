@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Image Content_image1, Content_image2, Content_image3;
     public List<Sprite> Content_Data1, Content_Data2, Content_Data3;
     public List<GameObject> Img;
-    int Img_Now = 0;
+   public int Img_Now = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         #endregion
+        Img_Now = 0;
     }
 
     // Update is called once per frame
