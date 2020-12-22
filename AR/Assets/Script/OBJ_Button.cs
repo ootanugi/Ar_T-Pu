@@ -9,7 +9,7 @@ public class OBJ_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,32 +19,40 @@ public class OBJ_Button : MonoBehaviour
         RaycastHit hit;
 
 
-        if(Physics.Raycast(ray,out hit)&&Input.touches[0].phase == TouchPhase.Began)
+        if (Physics.Raycast(ray, out hit) && Input.touches[0].phase == TouchPhase.Began)
         {
             OBJ_Name = hit.transform.name;
+            GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 0.5f).SetEase(Ease.InBack);
+
             switch (OBJ_Name)
             {
                 case "Test1":
                     Debug.LogError("Click1");
-                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(()=> GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[0]);
-                    
-                 
+                    GameManager.GetInstance().Content_image1.sprite = GameManager.GetInstance().Content_Data1[0];
+                    GameManager.GetInstance().Content_image2.sprite = GameManager.GetInstance().Content_Data1[1];
+                    GameManager.GetInstance().Content_image3.sprite = GameManager.GetInstance().Content_Data1[2];
                     break;
+
                 case "Test2":
                     Debug.LogError("Click2");
-                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(() => GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[1]);
+                    GameManager.GetInstance().Content_image1.sprite = GameManager.GetInstance().Content_Data2[0];
+                    GameManager.GetInstance().Content_image2.sprite = GameManager.GetInstance().Content_Data2[1];
+                    GameManager.GetInstance().Content_image3.sprite = GameManager.GetInstance().Content_Data2[2];
                     break;
+
                 case "Test3":
                     Debug.LogError("Click3");
-                    GameManager.GetInstance().Content_View.DOLocalMoveY(-450, 1).SetEase(Ease.OutBack).OnComplete(() => GameManager.GetInstance().Content_image.sprite = GameManager.GetInstance().Content_Sprite[2 ]);
+                    GameManager.GetInstance().Content_image1.sprite = GameManager.GetInstance().Content_Data3[0];
+                    GameManager.GetInstance().Content_image2.sprite = GameManager.GetInstance().Content_Data3[1];
+                    GameManager.GetInstance().Content_image3.sprite = GameManager.GetInstance().Content_Data3[2];
                     break;
-
             }
-                   DOVirtual.DelayedCall(1,()=> GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack));
+            DOVirtual.DelayedCall(1, () => GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack));
 
         }
-        
+
     }
 
+   
     
 }
