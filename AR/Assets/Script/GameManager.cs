@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
    public int Content_Now=0;
     public int Img_Now = 0;
 
+    public bool open = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void Content_Down()
     {
         GameManager.GetInstance().Content_View.DOLocalMoveY(-600, 1).SetEase(Ease.InBack);
+        open = false;
     }
 
     public void Next_B()

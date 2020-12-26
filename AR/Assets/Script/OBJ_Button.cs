@@ -19,7 +19,7 @@ public class OBJ_Button : MonoBehaviour
         RaycastHit hit;
 
 
-        if (Physics.Raycast(ray, out hit) /*&& Input.touches[0].phase == TouchPhase.Began*/)
+        if (Physics.Raycast(ray, out hit) && !GameManager.GetInstance().open /*&& Input.touches[0].phase == TouchPhase.Began*/)
         {
             OBJ_Name = hit.transform.name;
             GameManager.GetInstance().Content_View.DOLocalMoveY(-600, 0.5f).SetEase(Ease.InBack);
