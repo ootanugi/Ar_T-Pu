@@ -6,68 +6,73 @@ using DG.Tweening;
 public class OBJ_Button : MonoBehaviour
 {
     string OBJ_Name;
+    int T; //ใช้ใน Case()->Switch
     // Start is called before the first frame update
     void Start()
     {
-
+        T = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-        RaycastHit hit;
+       
+         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);            
+         RaycastHit hit;
+        
 
 
         if (Physics.Raycast(ray, out hit) && !GameManager.GetInstance().open /*&& Input.touches[0].phase == TouchPhase.Began*/)
         {
             OBJ_Name = hit.transform.name;
-            GameManager.GetInstance().Content_View.DOLocalMoveY(-600, 0.5f).SetEase(Ease.InBack);
-           
-            GameManager.GetInstance().Img_Now = 0;
-            //Case();
-            DOVirtual.DelayedCall(.8f, Case);
-            DOVirtual.DelayedCall(1f, () => GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack));
-
+            Case();
+            GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack);
+            GameManager.GetInstance().Panel.DOColor(new Color(0, 0, 0, .6f), .5f);
         }
 
     }
     public void Case()
     {
-        for (int i = 0; i < GameManager.GetInstance().All_ContentData[GameManager.GetInstance().Content_Now].Data.Count ; i++)
-        {
-            if (i != 0)
-            {
-                GameManager.GetInstance().All_ContentData[GameManager.GetInstance().Content_Now].Data[i].transform.DOLocalMoveX(800, .5f);
-            }
-        }
+        //ธรรมสวนะ  มาฆบูชา วิสาขบูชา ออกพรรษา อัฎฐมีบูชา อาสาฬหบูชา เข้าพรรษา
+           
         switch (OBJ_Name)
          {
-             case "Test1":
-                 Debug.LogError("Click1");
-                GameManager.GetInstance().Content_Now = 0;
-                 GameManager.GetInstance().Content_image[0].sprite = GameManager.GetInstance().Content_Data1[0];
-                 GameManager.GetInstance().Content_image[1].sprite = GameManager.GetInstance().Content_Data1[1];
-                 GameManager.GetInstance().Content_image[2].sprite = GameManager.GetInstance().Content_Data1[2];
-                 GameManager.GetInstance().Content_image[3].sprite = GameManager.GetInstance().Content_Data1[3];
+             case "ธรรมสวนะ"://0
+                Content_Select(0,2);
                 break;
+            case "มาฆบูชา"://1
+                Content_Select(1, 3);
+                break;
+            case "วิสาขบูชา"://2
+                Content_Select(2, 3);
+                break;
+            case "ออกพรรษา"://3
+                Content_Select(3, 2);
+                break;
+            case "อัฎฐมีบูชา"://4
+                Content_Select(4, 3);
+                break;
+            case "อาสาฬหบูชา"://5
+                Content_Select(5, 2);
+                break;
+            case "เข้าพรรษา"://6
+                Content_Select(6, 2);
+                break;
+        }
+        GameManager.GetInstance().open = true;
 
-             case "Test2":
-                 Debug.LogError("Click2");
-                GameManager.GetInstance().Content_Now = 1;
-                GameManager.GetInstance().Content_image[0].sprite = GameManager.GetInstance().Content_Data2[0];
-                 GameManager.GetInstance().Content_image[1].sprite = GameManager.GetInstance().Content_Data2[1];
-                 break;
+    }
 
-             case "Test3":
-                 Debug.LogError("Click3");
-                GameManager.GetInstance().Content_Now = 2;
-                 GameManager.GetInstance().Content_image[0].sprite = GameManager.GetInstance().Content_Data3[0];
-                 GameManager.GetInstance().Content_image[1].sprite = GameManager.GetInstance().Content_Data3[1];
-                 GameManager.GetInstance().Content_image[2].sprite = GameManager.GetInstance().Content_Data3[2];
-                 break;
-         }
+    public void Content_Select(int WC,int CI)
+    {
+       GameManager.GetInstance().What_Content = WC;
+       GameManager.GetInstance().Current_Img = CI;
 
+        for (int i = 0; i < GameManager.GetInstance().Content_Data_Sprite[GameManager.GetInstance().What_Content].Data.Count; i++)
+        {
+            GameManager.GetInstance().Content_image[i].sprite = GameManager.GetInstance().Content_Data_Sprite[GameManager.GetInstance().What_Content].Data[i];
+            GameManager.GetInstance().Content_image[i].SetNativeSize();
+        }
     }
 
    

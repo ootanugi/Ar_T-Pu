@@ -12,11 +12,15 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance() { return Instant; }
     #endregion
     public Transform Content_View;
+    public GameObject All_ContentDataOBJ;
     public List<Image> Content_image;
-    public List<Sprite> Content_Data1, Content_Data2, Content_Data3;
-    public List<ContentDataOBJ> All_ContentData;
-   public int Content_Now=0;
+    public List<ContentDataSprite> Content_Data_Sprite;
+
+    public Image Panel;
+    public int What_Content;
+
     public int Img_Now = 0;
+    public int Current_Img;
 
     public bool open = false;
 
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
         }
         #endregion
         Img_Now = 0;
+        Panel.DOColor(new Color(0, 0, 0, 0), .5f);
     }
 
     // Update is called once per frame
@@ -41,19 +46,20 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void Content_Down()
+    public void Close_Button()
     {
-        GameManager.GetInstance().Content_View.DOLocalMoveY(-600, 1).SetEase(Ease.InBack);
+        Content_View.DOLocalMoveY(-1500, 1).SetEase(Ease.InBack);
         open = false;
+        Panel.DOColor(new Color(0, 0, 0, 0), .5f);
     }
 
     public void Next_B()
     {
-        if (Img_Now < All_ContentData[Content_Now].Data.Count - 1)
+       if (Img_Now < Current_Img)
         {
 
             Img_Now++;
-            All_ContentData[Content_Now].Data[Img_Now].transform.DOLocalMoveX(0, .5f);
+            All_ContentDataOBJ.transform.DOLocalMoveX(All_ContentDataOBJ.transform.localPosition.x - 1400, .5f);
         }
     }
     public void Back_B()
@@ -61,7 +67,7 @@ public class GameManager : MonoBehaviour
         if (Img_Now > 0)
         {
 
-            All_ContentData[Content_Now].Data[Img_Now].transform.DOLocalMoveX(800, .5f);
+            All_ContentDataOBJ.transform.DOLocalMoveX(All_ContentDataOBJ.transform.localPosition.x + 1400, .5f);
             Img_Now--;
         }
     }
@@ -69,7 +75,7 @@ public class GameManager : MonoBehaviour
 }
 
 [Serializable]
-public class ContentDataOBJ
+public class ContentDataSprite
     {
-   public List<GameObject> Data;
+   public List<Sprite> Data;
 }
