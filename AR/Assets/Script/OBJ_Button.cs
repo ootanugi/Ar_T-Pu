@@ -25,6 +25,7 @@ public class OBJ_Button : MonoBehaviour
         if (Physics.Raycast(ray, out hit) && !GameManager.GetInstance().open /*&& Input.touches[0].phase == TouchPhase.Began*/)
         {
             OBJ_Name = hit.transform.name;
+            GameManager.GetInstance().Img_Now = 0;
             Case();
             GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack);
             GameManager.GetInstance().Panel.DOColor(new Color(0, 0, 0, .6f), .5f);

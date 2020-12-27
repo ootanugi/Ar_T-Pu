@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Image Panel;
     public int What_Content;
 
+    public List<int> ContentDataOBJ_Pos;
     public int Img_Now = 0;
     public int Current_Img;
 
@@ -44,12 +45,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        All_ContentDataOBJ.transform.DOLocalMoveX(ContentDataOBJ_Pos[Img_Now], .5f);
     }
     public void Close_Button()
     {
         Content_View.DOLocalMoveY(-1500, 1).SetEase(Ease.InBack);
-        open = false;
+      DOVirtual.DelayedCall(.5f,()=>  open = false);       
         Panel.DOColor(new Color(0, 0, 0, 0), .5f);
     }
 
@@ -57,17 +59,13 @@ public class GameManager : MonoBehaviour
     {
        if (Img_Now < Current_Img)
         {
-
             Img_Now++;
-            All_ContentDataOBJ.transform.DOLocalMoveX(All_ContentDataOBJ.transform.localPosition.x - 1400, .5f);
         }
     }
     public void Back_B()
     {
         if (Img_Now > 0)
         {
-
-            All_ContentDataOBJ.transform.DOLocalMoveX(All_ContentDataOBJ.transform.localPosition.x + 1400, .5f);
             Img_Now--;
         }
     }
