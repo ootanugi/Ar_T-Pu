@@ -5,13 +5,19 @@ using DG.Tweening;
 
 public class OBJ_Button : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip ButtonSound;
+    private AudioSource AuSr;
     string OBJ_Name;
     int T; //ใช้ใน Case()->Switch
     // Start is called before the first frame update
     void Start()
     {
         T = 0;
+        AuSr = GetComponent<AudioSource>();
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -27,6 +33,7 @@ public class OBJ_Button : MonoBehaviour
             OBJ_Name = hit.transform.name;
             GameManager.GetInstance().Img_Now = 0;
             Case();
+            PlayButtonSound();
             GameManager.GetInstance().Content_View.DOLocalMoveY(0, 1).SetEase(Ease.OutBack);
             GameManager.GetInstance().Panel.DOColor(new Color(0, 0, 0, .6f), .5f);
         }
@@ -62,6 +69,10 @@ public class OBJ_Button : MonoBehaviour
         }
         GameManager.GetInstance().open = true;
 
+    }
+    public void PlayButtonSound()
+    {
+        AuSr.PlayOneShot(ButtonSound);
     }
 
     public void Content_Select(int WC,int CI)
