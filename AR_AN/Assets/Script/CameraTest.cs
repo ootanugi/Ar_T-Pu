@@ -1,15 +1,20 @@
-﻿using UnityEngine;
+﻿
 #if PLATFORM_ANDROID
 using UnityEngine.Android;
-using UnityEngine.SceneManagement;
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 #endif
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class CameraTest : MonoBehaviour
 {
     GameObject dialog = null;
+
+    public GameObject Img1, Img2;
+    public Image Fade_Img;
 
     void Update()
     {
@@ -21,15 +26,19 @@ public class CameraTest : MonoBehaviour
         else
         {
             Debug.Log("Pass");
-            StartCoroutine(NextTutorial());
         }
 
 #endif
     }
 
-    IEnumerator NextTutorial()
+    public void Next_Scene(Image T)
     {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(1);
+        T.DOColor(new Color(1, 1, 1, 0), 1).OnComplete(() => AnimBG()) ;
+    }
+
+    public void AnimBG()
+    {
+        Img1.transform.DOMoveY(60, 1).SetEase(Ease.InBack);
+        Img2.transform.DOMoveY(600, 1).SetEase(Ease.InBack).OnComplete(() => Fade_Img.DOColor(new Color(1, .9f, .7f, 1), 1).OnComplete(() => SceneManager.LoadScene(1))) ;
     }
 }
