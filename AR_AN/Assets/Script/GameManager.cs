@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance() { return Instant; }
     #endregion
     public Transform Content_View;
-    public GameObject All_ContentDataOBJ;
+    public GameObject All_ContentDataOBJ/*,WaitTargetParnnel*/;
+    //public List<GameObject> Target;
+
+    
     public List<Image> Content_image;
     public List<ContentDataSprite> Content_Data_Sprite;
 
@@ -47,6 +50,16 @@ public class GameManager : MonoBehaviour
     {
 
         All_ContentDataOBJ.transform.DOLocalMoveX(ContentDataOBJ_Pos[Img_Now], .5f);
+
+        /*if(Target[0].activeSelf == true)
+        {
+            WaitTargetParnnel.SetActive(false);
+        }
+        else
+        {
+            WaitTargetParnnel.SetActive(true);
+        }*/
+
     }
     public void Close_Button()
     {
