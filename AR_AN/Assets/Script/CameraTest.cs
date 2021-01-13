@@ -50,7 +50,10 @@ public class CameraTest : MonoBehaviour
     }
 
 
-
+    public void GetLink()
+    {
+        Application.OpenURL("https://drive.google.com/file/d/1b85tFMzrqfqMiFk77NWv45GkXpmSWJ50/view?usp=sharing");
+    }
 
         public void AnimBG()
     {
