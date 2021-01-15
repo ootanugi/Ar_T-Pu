@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
@@ -18,5 +19,9 @@ public class Anim : MonoBehaviour
     void Update()
     {
         
+    }
+    public void To_Menu()
+    {
+        Start_Panel.DOColor(new Color(1, .9f, .7f, 1), 1).OnComplete(()=>SceneManager.LoadScene(0));
     }
 }
