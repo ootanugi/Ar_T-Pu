@@ -222,6 +222,7 @@ MonoBehaviour:
   HowtoPopup: {fileID: 1207363201}
   Fade_Img: {fileID: 2049379846}
   howtoB: {fileID: 1580443469}
+  DownLoadB: {fileID: 686434596}
 --- !u!1 &241151727
 GameObject:
   m_ObjectHideFlags: 0
