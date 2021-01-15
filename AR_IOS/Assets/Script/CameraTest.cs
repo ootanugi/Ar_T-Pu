@@ -14,7 +14,7 @@ public class CameraTest : MonoBehaviour
     GameObject dialog = null;
 
     public GameObject Img1, Img2, HowtoPopup;
-    public Image Fade_Img, howtoB;
+    public Image Fade_Img, howtoB,DownLoadB;
     
 
     void Update()
@@ -36,6 +36,7 @@ public class CameraTest : MonoBehaviour
     {
         T.DOColor(new Color(1, 1, 1, 0), 1).OnComplete(() => AnimBG()) ;
         howtoB.DOColor(new Color(1, 1, 1, 0), 1);
+        DownLoadB.DOColor(new Color(1, 1, 1, 0), 1);
     }
 
     public void How_To_Button()
