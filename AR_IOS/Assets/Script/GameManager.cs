@@ -25,9 +25,10 @@ public class GameManager : MonoBehaviour
     public List<int> ContentDataOBJ_Pos;
     public int Img_Now = 0;
     public int Current_Img;
-
     public bool open = false;
 
+
+    public GameObject WaitForMarker;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!DefaultTrackableEventHandler.TrackingFound)
+        {
+            WaitForMarker.SetActive(true);
+        }
+        else
+        {
+            WaitForMarker.SetActive(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            DefaultTrackableEventHandler.TrackingFound = !DefaultTrackableEventHandler.TrackingFound;
+        }
+
 
         All_ContentDataOBJ.transform.DOLocalMoveX(ContentDataOBJ_Pos[Img_Now], .5f);
 
