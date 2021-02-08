@@ -1262,7 +1262,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457136042}
-  m_Mesh: {fileID: 1468964952}
+  m_Mesh: {fileID: 1446322455}
 --- !u!23 &457136044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1577459606}
+  - {fileID: 1686524531}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1326,7 +1326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 32527597}
 --- !u!114 &457136047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2451,13 +2450,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285850286}
   m_CullTransparentMesh: 0
---- !u!43 &1468964952
+--- !u!43 &1446322455
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh14082
+  m_Name: ImageTargetMesh13782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3174,34 +3173,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!21 &1577459606
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'NewMaterial
-
-    16910'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 10677f78eb5c488e84ee420a6e9adbf9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1600882984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,10 +3280,12 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cd8e0704440544d4fa57592e8b0630dd, type: 3}
   Panel: {fileID: 100535179}
   What_Content: 0
+  _Target: {fileID: 1600882984}
   ContentDataOBJ_Pos: 0000000088faffff10f5ffff98efffff
   Img_Now: 0
   Current_Img: 0
   open: 0
+  WaitForMarker: {fileID: 32527597}
 --- !u!4 &1611946562
 Transform:
   m_ObjectHideFlags: 0
@@ -3829,6 +3802,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!21 &1686524531
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'NewMaterial
+
+    13792'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 10677f78eb5c488e84ee420a6e9adbf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1696422195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,7 +3839,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696422196}
-  - component: {fileID: 1696422197}
   m_Layer: 5
   m_Name: Target
   m_TagString: Untagged
@@ -3867,21 +3867,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1696422197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696422195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028396681b87547488c367b520d2ec9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 50
-  speed: 70
-  _Horizontal: 0
 --- !u!1 &2047768939
 GameObject:
   m_ObjectHideFlags: 0
