@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Image Panel;
     public int What_Content;
-    public GameObject _Target;
+    public SpriteRenderer _Target;
     public List<int> ContentDataOBJ_Pos;
     public int Img_Now = 0;
     public int Current_Img;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_Target.activeSelf == true)
+        if(_Target.enabled == false)
         {
             WaitForMarker.SetActive(true);
         }
