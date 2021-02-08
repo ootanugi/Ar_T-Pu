@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Image Panel;
     public int What_Content;
-
+    public GameObject _Target;
     public List<int> ContentDataOBJ_Pos;
     public int Img_Now = 0;
     public int Current_Img;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!DefaultTrackableEventHandler.TrackingFound)
+        if(_Target.activeSelf == true)
         {
             WaitForMarker.SetActive(true);
         }
@@ -58,10 +58,6 @@ public class GameManager : MonoBehaviour
             WaitForMarker.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            DefaultTrackableEventHandler.TrackingFound = !DefaultTrackableEventHandler.TrackingFound;
-        }
 
 
         All_ContentDataOBJ.transform.DOLocalMoveX(ContentDataOBJ_Pos[Img_Now], .5f);
