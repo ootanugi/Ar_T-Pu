@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Burj-al-Arab" size="100.000000 100.000000" />
+    <ImageTarget name="Yokohama-Landmark-Tower" size="100.000000 100.000000" />
+    <ImageTarget name="Pantheon" size="100.000000 100.000000" />
+    <ImageTarget name="Golden-Gate-Bridge" size="100.000000 100.000000" />
+    <ImageTarget name="parsat" size="100.000000 100.000000" />
+    <ImageTarget name="Changdeokgung" size="100.000000 100.000000" />
+    <ImageTarget name="Great-Wall-of-China" size="100.000000 100.000000" />
+    <ImageTarget name="Saint-Basil-Cathedral" size="100.000000 100.000000" />
+    <ImageTarget name="Sydney-opera-house" size="100.000000 100.000000" />
+    <ImageTarget name="Statue-of-liberty" size="100.000000 100.000000" />
+    <ImageTarget name="Tour-eiffel" size="100.000000 100.000000" />
+    <ImageTarget name="Leaning-tower-of-pisa" size="100.000000 100.000000" />
+    <ImageTarget name="Tower-Bridge" size="100.000000 100.000000" />
+    <ImageTarget name="BIG-Ben" size="100.000000 100.000000" />
+    <ImageTarget name="Willis-tower" size="100.000000 100.000000" />
+  </Tracking>
+</QCARConfig>
